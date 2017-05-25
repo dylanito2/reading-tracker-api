@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170525162005) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170525162005) do
     t.integer  "grade"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "name"
   end
 
   create_table "comments", force: :cascade do |t|
