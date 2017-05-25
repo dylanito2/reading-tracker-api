@@ -1,6 +1,6 @@
 School.create!(name: 'PS158', street_address: '123 1st St', city: 'New York', state: 'NY', zip: 10021)
 Admin.create!(email: 'admin@school.com', first_name: 'Mr.', last_name: 'Principal', school_id: 1)
-c = Classroom.create!(room_number: '410', grade: 4)
+c = Classroom.create!(room_number: '410', grade: 4, name: 'Mr. Teachers 4th grade')
 t = Teacher.create!(email: 'teacher@school.com', first_name: 'Mr.', last_name: 'Teacher', password_digest: '123123', school_id: 1)
 c.teachers << t
 Student.create!(first_name: 'Dylan', last_name: 'Breves', classroom_id: 1)
