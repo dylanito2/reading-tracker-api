@@ -1,0 +1,54 @@
+1.) Teacher Model -
+(Has many students, through classes
+Has many classes,
+Has many comments
+Belongs to school)
+-First Name
+-Last Name
+-Email
+-School (School Dropdown)
+-Password
+
+2.) School Model
+-Has many teachers
+-Has many classes, through teachers
+-Has many students, through classes
+
+-Name
+-Street Address
+-City
+-State
+-Zip Code
+
+3.) Classroom Model
+-Has many teachers
+-Has many students
+
+-Room
+-Grade
+
+JOIN TABLE - Class_teachers (class_id, teacher_id)
+
+4.) Student Model -
+Belongs to class
+Has many comments
+Has many reading_levels
+
+first_name
+last_name
+
+
+5.) Comments Model -
+-Belongs to student
+-Belongs to teacher
+
+-Text
+
+6.) Reading Level Model -
+-Belongs to student
+-Belongs to teacher
+
+-Level (VARCHAR)
+
+7. ) Admin Model
+-Belongs to school
