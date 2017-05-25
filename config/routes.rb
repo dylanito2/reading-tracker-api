@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  namespace :v1 do
+    resources :schools, only: :index do
+      resources :classrooms, only: :index do
+        resources :students, only: :show do
+        end
+      end
+    end 
+  end
+
 end
