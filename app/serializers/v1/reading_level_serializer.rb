@@ -1,3 +1,3 @@
 class V1::ReadingLevelSerializer < ActiveModel::Serializer
-  attributes :score, :created_at
+  attributes :id, :score, :created_at
 end
