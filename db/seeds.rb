@@ -9,3 +9,13 @@ Student.create!(first_name: 'Noah', last_name: 'Schecter', classroom_id: 1)
 Student.create!(first_name: 'Liz', last_name: 'Masi', classroom_id: 1)
 Student.create!(first_name: 'Erin', last_name: 'Smith', classroom_id: 1)
 Student.create!(first_name: 'Steven', last_name: 'Nunbez', classroom_id: 1)
+
+c = Classroom.create!(room_number: '510', grade: 5, name: 'Mr. Teachers 4th grade')
+t = Teacher.create!(email: 'teacher@school.com', first_name: 'Ms.', last_name: 'OtherTeacher', password_digest: '123123', school_id: 1)
+c.teachers << t
+Student.create!(first_name: 'Dylan', last_name: 'Breves', classroom_id: 2)
+Student.create!(first_name: 'Ian', last_name: 'Boynton', classroom_id: 2)
+Student.create!(first_name: 'Noah', last_name: 'Schecter', classroom_id: 2)
+Student.create!(first_name: 'Liz', last_name: 'Masi', classroom_id: 2)
+Student.create!(first_name: 'Erin', last_name: 'Smith', classroom_id: 2)
+Student.create!(first_name: 'Steven', last_name: 'Nunbez', classroom_id: 2)
