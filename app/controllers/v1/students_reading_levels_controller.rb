@@ -1,4 +1,4 @@
-class V1::ReadingLevelsController < ApplicationController
+class V1::StudentsReadingLevelsController < ApplicationController
 
   def index
     student = Student.find(params[:student_id])

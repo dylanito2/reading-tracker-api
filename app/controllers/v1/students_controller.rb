@@ -19,4 +19,14 @@ class V1::StudentsController < ApplicationController
     end
   end
 
+  def fuzzy_search
+    search_term = params["query"]
+    students = Student.where('first_name LIKE ?', "%#{search_term}%").limit(10)
+    if students
+      render json: students, each_serializer: V1::StudentSerializer
+    else
+      render json: "No matches found", status: 401
+    end
+  end
+
 end
