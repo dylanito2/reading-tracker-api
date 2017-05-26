@@ -6,14 +6,17 @@ class Student < ApplicationRecord
   SCORING_ARRAY = [*"1".."9"] + [*'a'..'z']
 
   def calculate_reading_level_objects
-    self.reading_levels.map do |score|
-      rl[display] = score
-      rl[value] = generate_numeric_value(score)
+    self.reading_levels.map do |level_obj|
+      rl = {}
+      rl["Display"] = level_obj.score
+      rl["Value"] = generate_numeric_value(level_obj.score)
+      rl["Date"] = level_obj.created_at
+      rl
     end
   end
 
   def generate_numeric_value(score)
-    SCORING_ARRAY.indexOf(score) + 1
+    SCORING_ARRAY.index(score) + 1
   end
 
 end
