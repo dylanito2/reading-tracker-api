@@ -2,15 +2,14 @@ class V1::ConferencesController < ApplicationController
 
   def create
     student = Student.find(params[:student_id])
-    byebug
     if student
       conference = Conference.new(conference_params)
-      conference.reading_level = params[:reading_level]
-      params[:comments].each do |comment|
-        conference.comments << comment
-      end
       if conference.save
-        render json: student, serializer: V1::StudentSerializer
+        conference.reading_level = ReadingLevel.create(score: params[:reading_level], conference_id: conference.id)
+        params[:comments].each do |comment|
+          Comment.create(text: comment, conference_id: conference.id)
+        end
+        render json: student, include: '**', serializer: V1::StudentSerializer
       else
         render json: "Unable to save conference", status: 401
       end
@@ -22,7 +21,7 @@ class V1::ConferencesController < ApplicationController
   private
 
   def conference_params
-    params.require(:comment).permit(:student_id, :teacher_id)
+    params.require(:conference).permit(:student_id, :teacher_id)
   end
 
 end
