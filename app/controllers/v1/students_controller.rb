@@ -13,7 +13,7 @@ class V1::StudentsController < ApplicationController
   def show
     student = Student.find(params[:id])
     if student
-      render json: student, serializer: V1::StudentSerializer
+      render json: student, include: '**', serializer: V1::StudentSerializer
     else
       render json: "No student found with this ID", status: 401
     end
