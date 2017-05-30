@@ -8,9 +8,8 @@ class Student < ApplicationRecord
   def calculate_reading_level_objects
     self.reading_levels.map do |level_obj|
       rl = {}
-      rl["Display"] = level_obj.score
+      rl["xPosition"] = level_obj.id
       rl["Value"] = generate_numeric_value(level_obj.score)
-      rl["Date"] = level_obj.created_at
       rl
     end
   end
