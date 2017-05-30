@@ -1,4 +1,4 @@
-class CreateComments < ActiveRecord::Migration[5.0]
+class CreateConferences < ActiveRecord::Migration[5.0]
   def change
     create_table :conferences do |t|
       t.references :teacher

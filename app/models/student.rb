@@ -1,7 +1,8 @@
 class Student < ApplicationRecord
   belongs_to :classroom
-  has_many :comments
-  has_many :reading_levels
+  has_many :conferences
+  has_many :comments, through: :conferences
+  has_many :reading_levels, through: :conferences
 
   SCORING_ARRAY = [*"1".."9"] + [*'a'..'z']
 
